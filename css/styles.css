@@ -57,3 +57,15 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+
+/* Progresso barra */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    z-index: 1000;
+    transition: width 0.1s ease;
+}
