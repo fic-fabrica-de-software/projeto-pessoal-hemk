@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'conexao.php';
+require 'config/conexao.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,15 +12,15 @@ require 'conexao.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body>
-    <?php include('navbar.php'); ?>
+    <?php include('model/navbar.php'); ?>
     <div class="container mt-4">
-      <?php include('mensagem.php'); ?>
+      <?php include('model/mensagem.php'); ?>
       <div class="row">
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
               <h4> Lista de Usuários
-                <a href="usuario-create.php" class="btn btn-primary float-end">Adicionar usuário</a>
+                <a href="model/usuario-create.php" class="btn btn-primary float-end">Adicionar usuário</a>
               </h4>
             </div>
             <div class="card-body">
@@ -47,9 +47,9 @@ require 'conexao.php';
                     <td><?=$usuario['email']?></td>
                     <td><?=date('d/m/Y', strtotime($usuario['data_nascimento']))?></td>
                     <td>
-                      <a href="usuario-view.php?id=<?=$usuario['id']?>" class="btn btn-secondary btn-sm"><span class="bi-eye-fill"></span>&nbsp;Visualizar</a>
-                      <a href="usuario-edit.php?id=<?=$usuario['id']?>" class="btn btn-success btn-sm"><span class="bi-pencil-fill"></span>&nbsp;Editar</a>
-                      <form action="acoes.php" method="POST" class="d-inline">
+                      <a href="model/usuario-view.php?id=<?=$usuario['id']?>" class="btn btn-secondary btn-sm"><span class="bi-eye-fill"></span>&nbsp;Visualizar</a>
+                      <a href="model/usuario-edit.php?id=<?=$usuario['id']?>" class="btn btn-success btn-sm"><span class="bi-pencil-fill"></span>&nbsp;Editar</a>
+                      <form action="model/acoes.php" method="POST" class="d-inline">
                         <button onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="delete_usuario" value="<?=$usuario['id']?>" class="btn btn-danger btn-sm">
                           <span class="bi-trash3-fill"></span>&nbsp;Excluir
                         </button>
