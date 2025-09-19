@@ -7,7 +7,6 @@ pyautogui.alert("O script vai começar. Não mexa no mouse ou teclado.")
 time.sleep(3)
 
 # Abrir o navegador
-
 pyautogui.press("win")
 pyautogui.write("chrome")
 pyautogui.press("enter")
@@ -41,9 +40,8 @@ tabela = pd.read_csv("../data/usuarios.csv")
 
 print(tabela)
 
-# Cadastrar usuários
+# Cadastrar usuários em loop
 for linha in tabela.index:
-    pyautogui.scroll(1000)  # Rolar a página para cima
     pyautogui.click(x=100, y=200)  # Coordenadas do botão "Adicionar Usuário"
     time.sleep(1)
 
@@ -67,3 +65,7 @@ for linha in tabela.index:
     pyautogui.press("tab")
 
     pyautogui.press("enter")
+    pyautogui.alert(f"Usuário {nome} cadastrado com sucesso!")
+
+
+pyautogui.alert("Script finalizado.")
