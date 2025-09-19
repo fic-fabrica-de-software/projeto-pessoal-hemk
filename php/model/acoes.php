@@ -9,11 +9,9 @@ if (isset($_POST['create_usuario'])) {
 	$sql = "INSERT INTO usuarios (nome, email, data_nascimento, senha) VALUES ('$nome', '$email', '$data_nascimento', '$senha')";
 	mysqli_query($conexao, $sql);
 	if (mysqli_affected_rows($conexao) > 0) {
-		$_SESSION['mensagem'] = 'Usuário criado com sucesso';
 		header('Location: ../index.php');
 		exit;
 	} else {
-		$_SESSION['mensagem'] = 'Usuário não foi criado';
 		header('Location: ../index.php');
 		exit;
 	}
@@ -31,11 +29,9 @@ if (isset($_POST['update_usuario'])) {
 	$sql .= " WHERE id = '$usuario_id'";
 	mysqli_query($conexao, $sql);
 	if (mysqli_affected_rows($conexao) > 0) {
-		$_SESSION['mensagem'] = 'Usuário atualizado com sucesso';
 		header('Location: ../index.php');
 		exit;
-	} else {
-		$_SESSION['mensagem'] = 'Usuário não foi atualizado';
+	} else {;
 		header('Location: ../index.php');
 		exit;
 	}
@@ -45,11 +41,9 @@ if (isset($_POST['delete_usuario'])) {
 	$sql = "DELETE FROM usuarios WHERE id = '$usuario_id'";
 	mysqli_query($conexao, $sql);
 	if (mysqli_affected_rows($conexao) > 0) {
-		$_SESSION['message'] = 'Usuário deletado com sucesso';
 		header('Location: ../index.php');
 		exit;
 	} else {
-		$_SESSION['message'] = 'Usuário não foi deletado';
 		header('Location: ../index.php');
 		exit;
 	}

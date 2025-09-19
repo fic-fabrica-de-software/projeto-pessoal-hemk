@@ -13,7 +13,7 @@ pyautogui.press("enter")
 time.sleep(2)
 
 # Abrir o sistema
-pyautogui.write("localhost:8080/aulas_hemk/projeto-pessoal-projeto_curso/php/login.html")
+pyautogui.write("http://localhost:8080/pitch_pp/projeto-pessoal-projeto_curso/php/login.php")
 pyautogui.press("enter")
 time.sleep(2)
 
@@ -25,29 +25,32 @@ pyautogui.write("admin@gmail.com")
 
 # Preencher senha
 pyautogui.press("tab")
-pyautogui.write("senhaforte")
+pyautogui.write("senha123")
 
 # Clicar em entrar
 pyautogui.press("tab")
 pyautogui.press("tab")
 pyautogui.press("enter")
-time.sleep(2)
-
+time.sleep(2)   
 # Importar a base de dados (tabela)
-import pandas as pd
+import pandas
 
-tabela = pd.read_csv("../data/usuarios.csv")
+tabela = pandas.read_csv(r"C:\xampp\htdocs\pitch_pp\projeto-pessoal-projeto_curso\python\src\usuarios.csv")
 
 print(tabela)
 
 # Cadastrar usuários em loop
 for linha in tabela.index:
-    pyautogui.click(x=100, y=200)  # Coordenadas do botão "Adicionar Usuário"
+    pyautogui.press("tab")
+    pyautogui.press("tab")
+    pyautogui.press("enter")
     time.sleep(1)
 
-    pyautogui.click(x=300, y=300)  # Coordenadas do campo "Nome"
+    pyautogui.press("tab")
+    pyautogui.press("tab")
+    pyautogui.press("tab")
 
-    nome = tabela.loc[linha, "nome"]
+    nome = tabela.loc[linha, "Nome"]
     pyautogui.write(nome)
     pyautogui.press("tab")
 
@@ -65,7 +68,5 @@ for linha in tabela.index:
     pyautogui.press("tab")
 
     pyautogui.press("enter")
-    pyautogui.alert(f"Usuário {nome} cadastrado com sucesso!")
 
-
-pyautogui.alert("Script finalizado.")
+pyautogui.alert("Usuarios cadastrados com sucesso.")
