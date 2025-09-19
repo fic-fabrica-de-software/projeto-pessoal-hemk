@@ -25,7 +25,7 @@ pyautogui.write("admin@gmail.com")
 
 # Preencher senha
 pyautogui.press("tab")
-pyautogui.write("senha123")
+pyautogui.write("senhaforte")
 
 # Clicar em entrar
 pyautogui.press("tab")
