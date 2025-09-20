@@ -63,6 +63,11 @@ require 'config/conexao.php';
                  ?>
                 </tbody>
               </table>
+              <form action="model/acoes.php" method="POST" class="d-inline">
+                        <button onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="delete_todos" class="btn btn-danger btn-sm">
+                          <span class="bi-trash3-fill"></span>&nbsp;
+                        </button>
+                      </form>
             </div>
           </div>
         </div>

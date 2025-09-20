@@ -48,4 +48,16 @@ if (isset($_POST['delete_usuario'])) {
 		exit;
 	}
 }
+
+if (isset($_POST['delete_todos'])) {
+	$sql = "DELETE FROM usuarios";
+	mysqli_query($conexao, $sql);
+	if (mysqli_affected_rows($conexao) > 0) {
+		header('Location: ../index.php');
+		exit;
+	} else {
+		header('Location: ../index.php');
+		exit;
+	}
+}
 ?>

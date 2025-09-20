@@ -34,6 +34,7 @@ pyautogui.press("tab")
 pyautogui.press("tab")
 pyautogui.press("enter")
 time.sleep(2)   
+
 # Importar a base de dados (tabela)
 import pandas
 
@@ -42,7 +43,7 @@ tabela = pandas.read_csv(r"C:\xampp\htdocs\fábrica_de_software\projeto-pessoal-
 print(tabela)
 
 # Cadastrar usuários em loop
-for linha in tabela.index[:5]: # Limitar a 5 cadastros para teste
+for linha in tabela.index[:3]: # Limitar cadastros para teste
     pyautogui.press("tab")
     pyautogui.press("tab")
     pyautogui.press("enter")
