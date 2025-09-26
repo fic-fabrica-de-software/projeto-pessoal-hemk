@@ -10,12 +10,10 @@ time.sleep(3)
 pyautogui.press("win")
 pyautogui.write("chrome")
 pyautogui.press("enter")
-pyautogui.press("tab")
-pyautogui.press("enter")
 time.sleep(2)
 
 # Abrir o sistema
-pyautogui.write("http://localhost/f%C3%A1brica_de_software/projeto-pessoal-projeto_curso/php/login.php")
+pyautogui.write("http://localhost:8080/projeto-pessoal-projeto_curso/php/login.php")
 pyautogui.press("enter")
 time.sleep(2)
 
@@ -38,12 +36,12 @@ time.sleep(2)
 # Importar a base de dados (tabela)
 import pandas
 
-tabela = pandas.read_csv(r"C:\xampp\htdocs\fábrica_de_software\projeto-pessoal-projeto_curso\python\src\usuarios.csv")
+tabela = pandas.read_csv(r"C:\xampp\htdocs\projeto-pessoal-projeto_curso\python\src\usuarios.csv")
 
 print(tabela)
 
 # Cadastrar usuários em loop
-for linha in tabela.index[:3]: # Limitar cadastros para teste
+for linha in tabela.index[3:6]: # Limitar cadastros para teste
     pyautogui.press("tab")
     pyautogui.press("tab")
     pyautogui.press("enter")
