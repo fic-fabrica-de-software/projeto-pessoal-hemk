@@ -20,3 +20,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# terminal: projeto-pessoal-projeto_curso/django/ py manage.py runserver
+# https://docs.djangoproject.com/en/5.2/intro/tutorial02/
+# Venv e Pip freeze
+# Migrar CRUD e DB para DJANGO

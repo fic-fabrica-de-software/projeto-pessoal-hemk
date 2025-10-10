@@ -36,7 +36,7 @@ time.sleep(2)
 # Importar a base de dados (tabela)
 import pandas
 
-tabela = pandas.read_csv(r"C:\xampp\htdocs\projeto-pessoal-projeto_curso\python\src\usuarios.csv")
+tabela = pandas.read_csv("usuarios.csv")
 
 print(tabela)
 
