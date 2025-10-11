@@ -84,14 +84,15 @@
                     </div>
 
                     <div class="login-body">
-                        <form action="{% url '' %}" >
+                        <form action="{% url 'listagem_usuarios' %}" method="post">
+                            {% csrf_token %}
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
+                                <label for="nome" class="form-label">Usuário</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light">
                                         <i class="bi bi-envelope text-muted"></i>
                                     </span>
-                                    <input type="email" name="email" class="form-control" id="email" placeholder="Digite seu email" required>
+                                    <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite seu nome de usuário" required>
                                 </div>
                             </div>
 
