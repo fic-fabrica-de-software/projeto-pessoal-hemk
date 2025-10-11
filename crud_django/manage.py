@@ -6,7 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'crud_django.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -20,8 +20,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-# terminal: projeto-pessoal-projeto_curso/django/ py manage.py runserver
-# https://docs.djangoproject.com/en/5.2/intro/tutorial02/
-# Venv e Pip freeze
-# Migrar CRUD e DB para DJANGO
