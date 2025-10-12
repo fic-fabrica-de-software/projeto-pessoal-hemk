@@ -1,21 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Usuario
 
-# Create your views here.
 def home(request):
-    return render(request, 'usuarios/home.html') 
+    return render(request, 'usuarios/login.html')
 
-def usuarios(request):
-    # Salvar dados do usuários para banco de dados
-    novo_usuario = Usuario()
-    novo_usuario.nome = request.POST.get('nome')
-    novo_usuario.senha = request.POST.get('senha')
-    novo_usuario.save
+def cadastrar_usuario(request):
+    if request.method == 'POST':
+        novo_usuario = Usuario()
+        novo_usuario.nome = request.POST.get('nome')
+        novo_usuario.senha = request.POST.get('senha')
+        novo_usuario.save()
+        return redirect('listagem_usuarios')
+    return redirect('home') # Redireciona para a página de login se for GET
 
-    # Exibir usuários cadastrados
-    usuarios = {
-        'usuarios': Usuario.objects.all()
+def listagem_usuarios(request):
+    usuarios_cadastrados = Usuario.objects.all()
+    contexto = {
+        'usuarios': usuarios_cadastrados
     }
-
-    # Retornar os dados
-    return render(request, 'usuarios/usuarios.html', usuarios)
+    return render(request, 'usuarios/usuarios.html', contexto)

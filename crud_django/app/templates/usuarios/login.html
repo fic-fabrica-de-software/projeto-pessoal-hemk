@@ -1,0 +1,63 @@
+{% extends 'usuarios/base.html' %}
+{% block conteudo %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card login-card" style="background-color: white;border: 1px solid #dee2e6;border-radius: 8px;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div class="login-header" style="background-color: #343a40;color: white;padding: 2rem;text-align: center;border-radius: 8px 8px 0 0;">
+                    <i class="bi bi-person-circle fs-1 mb-3"></i>
+                    <h3 class="mb-0">Login</h3>
+                    <p class="mb-0">Acesse sua conta</p>
+                </div>
+
+                <div class="login-body" style="padding: 2rem;">
+                    <form action="{% url 'listagem_usuarios' %}" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Usuário</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-envelope text-muted"></i>
+                                </span>
+                                <input type="text" name="nome" class="form-control" style="border: 1px solid #ced4da;border-radius: 4px;" id="nome" placeholder="Digite seu nome de usuário" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="senha" class="form-label">Senha</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-lock text-muted"></i>
+                                </span>
+                                <input type="password" name="senha" class="form-control" style="border: 1px solid #ced4da;border-radius: 4px;" id="senha" placeholder="Digite sua senha" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" name="lembrar" value="1" class="form-check-input" id="lembrar">
+                            <label class="form-check-label" for="lembrar">
+                                Lembrar de mim
+                            </label>
+                        </div>
+
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-login" style="background-color: #343a40;border-color: #343a40;color: white;" name="login">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>
+                                Entrar
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <p class="text-muted mb-0">
+                    <i class="bi bi-shield-check me-1"></i>
+                    Projeto - Fábrica de Software
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
