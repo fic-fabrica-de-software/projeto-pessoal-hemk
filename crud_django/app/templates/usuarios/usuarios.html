@@ -15,6 +15,7 @@
                                 <th>ID</th>
                                 <th>Nome</th>
                                 <th>Senha</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
 
@@ -24,6 +25,12 @@
                                 <td> {{usuario.id}} </td>
                                 <td> {{usuario.nome}} </td>
                                 <td> {{usuario.senha}} </td>
+                                <td>
+                                    <form action="{% url 'deletar_usuario' usuario.id %}" method="post" style="display:inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+                                    </form>
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
