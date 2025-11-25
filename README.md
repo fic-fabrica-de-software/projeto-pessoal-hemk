@@ -1,4 +1,4 @@
-2# Monitr: Plataforma de Gerenciamento de Usuários e Tarefas
+## Monitr: Plataforma de Gerenciamento de Usuários e Tarefas
 
 ## Descrição do Projeto
 
