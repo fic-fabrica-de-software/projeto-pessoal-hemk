@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Usuario
 
 def index(request):
-    return render(request, 'user/index.html')
+    return render(request, 'index.html')
 
 def cadastro(request):
-    return render(request, 'usuarios/cadastro.html')
+    return render(request, 'cadastro.html')
 
 def login(request):
-    return render(request, 'usuarios/login.html')
+    return render(request, 'login.html')
 
 def cadastrar_usuario(request):
     if request.method == 'POST':
@@ -35,7 +35,7 @@ def listagem_usuarios(request):
     contexto = {
         'usuarios': usuarios_cadastrados
     }
-    return render(request, 'usuarios/usuarios.html', contexto)
+    return render(request, 'user/menu.html', contexto)
 
 def deletar_usuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, id=usuario_id)
@@ -52,4 +52,4 @@ def editar_usuario(request, usuario_id):
     contexto = {
         'usuario': usuario
     }
-    return render(request, 'usuarios/editar_usuario.html', contexto)
+    return render(request, 'user/editar_usuario.html', contexto)
