@@ -7,6 +7,9 @@ def index(request):
 def cadastro(request):
     return render(request, 'usuarios/cadastro.html')
 
+def login(request):
+    return render(request, 'usuarios/login.html')
+
 def cadastrar_usuario(request):
     if request.method == 'POST':
         novo_usuario = Usuario()
@@ -27,6 +30,13 @@ def logar_usuario(request):
             return redirect('login') # Redireciona para a página de login se falhar
     return redirect('login') # Redireciona para a página de login se for GET
 
+def listagem_usuarios(request):
+    usuarios_cadastrados = Usuario.objects.all()
+    contexto = {
+        'usuarios': usuarios_cadastrados
+    }
+    return render(request, 'usuarios/usuarios.html', contexto)
+
 def deletar_usuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, id=usuario_id)
     usuario.delete()
@@ -43,10 +53,3 @@ def editar_usuario(request, usuario_id):
         'usuario': usuario
     }
     return render(request, 'usuarios/editar_usuario.html', contexto)
-
-def listagem_usuarios(request):
-    usuarios_cadastrados = Usuario.objects.all()
-    contexto = {
-        'usuarios': usuarios_cadastrados
-    }
-    return render(request, 'usuarios/usuarios.html', contexto)

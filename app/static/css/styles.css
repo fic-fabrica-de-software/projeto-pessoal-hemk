@@ -130,7 +130,8 @@ body {
 
 .login-container {
     width: 100%;
-    max-width: 28rem;
+    /* Permitir que o container cresça/estreite conforme a viewport; em telas pequenas permite-se até 95vw */
+    max-width: clamp(20rem, 95vw, 80rem);
     text-align: center;
     animation: fadeIn 0.6s ease-in-out;
 }
@@ -160,14 +161,19 @@ body {
 }
 
 .logo {
-    width: 3.5rem;
+    /* Mantém a logo grande mesmo em telas pequenas: mínimo 8rem, ideal 60vw, máximo 60rem */
+    width: clamp(8rem, 60vw, 60rem);
     max-width: 100%;
+    height: auto;
     display: block;
     object-fit: contain;
+    margin: 0 auto; /* centraliza */
 }
 
+/* Remove larguras fixas em pixels para a imagem interna */
 .logo img {
-    width: 500px;
+    max-width: 100%;
+    height: auto;
 }
 
 .brand-title {
@@ -203,7 +209,8 @@ body {
 
 .btn {
     display: block;
-    width: 80%;
+    /* Diminuir largura dos botões para que o logo fique maior que eles */
+    width: 60%;
     padding: var(--spacing-md) var(--spacing-lg);
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
@@ -217,7 +224,8 @@ body {
 
 /* Botão Primário */
 .btn-primary {
-    width: 100%;
+    /* Não forçar 100% — manter 60% como .btn para que o logo seja maior */
+    width: 60%;
     background-color: var(--primary-color);
     color: var(--white);
     box-shadow: var(--shadow-sm);
@@ -304,11 +312,8 @@ body {
    ======================================== */
 
 @media (min-width: 640px) {
-    .logo {
-        width: 4rem;
-        height: auto;
-    }
-
+    /* .logo agora controlado por clamp() na regra base para ficar proporcional; não sobrescrever aqui */
+    
     .brand-title {
         font-size: 2.25rem;
     }
@@ -333,10 +338,7 @@ body {
 }
 
 @media (min-width: 768px) {
-    .logo {
-        width: 5rem;
-        height: auto;
-    }
+    /* Mantém layout maior, mas logo continua responsivo via clamp() */
 
     .brand-title {
         font-size: 2.5rem;
@@ -350,5 +352,22 @@ body {
 @media (min-width: 1024px) {
     .container {
         padding: var(--spacing-2xl);
+    }
+}
+
+/* Ajustes para telas pequenas: garantir que logo continue grande sem overflow e reduzir espaçamentos */
+@media (max-width: 640px) {
+    .logo-wrapper {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .brand-title {
+        font-size: 1.5rem;
+    }
+
+    /* Botões mais estreitos em telas pequenas para destacar o logo */
+    .btn,
+    .btn-primary {
+        width: 50%;
     }
 }

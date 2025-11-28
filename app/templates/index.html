@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitr - Login & Cadastro</title>
-    <link rel="stylesheet" href="../../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -12,7 +12,7 @@
             <!-- Logo e Branding -->
             <div class="brand-section">
                 <div class="logo-wrapper">
-                    <img src="../../static/assets/logo.png" alt="Monitr Logo" class="logo">
+                    <img src="../static/assets/logo.png" alt="Monitr Logo" class="logo">
                 </div>
                 
                 <h1 class="brand-title">monitr</h1>
@@ -21,10 +21,10 @@
 
             <!-- Formulário de Autenticação -->
             <div class="auth-section">
-                <button class="btn btn-primary" id="loginBtn" aria-label="Fazer login">
+                <button class="btn btn-primary" id="loginBtn" aria-label="Fazer login" href="{% url 'login' %}">
                     Log In
                 </button>
-                <button class="btn btn-secondary" id="signupBtn" aria-label="Criar nova conta">
+                <button class="btn btn-secondary" id="signupBtn" aria-label="Criar nova conta" href="{% url 'cadastro' %}">
                     Sign Up
                 </button>
             </div>
@@ -34,6 +34,6 @@
         </main>
     </div>
 
-    <script src="../../static/js/main.js"></script>
+    <script src="../static/js/main.js"></script>
 </body>
 </html>
