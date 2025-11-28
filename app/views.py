@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Usuario
+from .models import Usuario, Tarefa
 
 def index(request):
     return render(request, 'index.html')
@@ -53,3 +53,16 @@ def editar_usuario(request, usuario_id):
         'usuario': usuario
     }
     return render(request, 'user/editar_usuario.html', contexto)
+
+def atribuir_tarefa(request, usuario_id):
+    usuario = get_object_or_404(Usuario, id=usuario_id)
+    if request.method == 'POST':
+        descricao = request.POST.get('descricao', '').strip()
+        if descricao:
+            Tarefa.objects.create(descricao=descricao, usuario=usuario)
+            return redirect('listagem_usuarios')
+    contexto = {
+        'usuario': usuario,
+        'tarefas': usuario.tarefas.all(),
+    }
+    return render(request, 'user/atribuir_tarefa.html', contexto)

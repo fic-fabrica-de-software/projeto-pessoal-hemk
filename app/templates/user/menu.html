@@ -43,11 +43,16 @@
                                     <td> {{usuario.nome}} </td>
                                     <td> {{usuario.senha}} </td>
                                     <td>
-                                    <a href="{% url 'editar_usuario' usuario.id %}" class="btn btn-success btn-sm"><span class="bi-pencil-fill"></span>Editar</a>
+                                    <a href="{% url 'editar_usuario' usuario.id %}" class="btn btn-success btn-sm"><span class="bi-pencil-fill"></span> Editar</a>
                                     
                                     <form action="{% url 'deletar_usuario' usuario.id %}" method="post" style="display:inline;">
                                         {% csrf_token %}
-                                        <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+                                        <button type="submit" class="btn btn-danger btn-sm"><span class="bi-trash-fill"></span> Deletar</button>
+                                    </form>
+
+                                    <form action="{% url 'atribuir_tarefa' usuario.id %}" method="post" style="display:inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-info btn-sm text-light"><span class="bi-activity"></span> Atribuir tarefa</button>
                                     </form>
                                 </td>
                                 </tr>
