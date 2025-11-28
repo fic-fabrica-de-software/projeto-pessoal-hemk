@@ -1,0 +1,354 @@
+/* ========================================
+   CSS Reset e Variáveis Globais
+   ======================================== */
+
+:root {
+    /* Cores */
+    --primary-color: #16a89a;
+    --primary-hover: #138a7e;
+    --primary-light: #20c9b8;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --border-color: #d1d5db;
+    --bg-light: #f9fafb;
+    --white: #ffffff;
+
+    /* Tipografia */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Espaçamento */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+
+    /* Transições */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 200ms ease-in-out;
+    --transition-slow: 300ms ease-in-out;
+
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-full: 9999px;
+
+    /* Sombras */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   Layout Principal
+   ======================================== */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: var(--spacing-md);
+    background-color: var(--white);
+    position: relative;
+}
+
+/* ========================================
+   Navbar
+   ======================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    padding: var(--spacing-md);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-full);
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.nav-logo:hover {
+    box-shadow: var(--shadow-md);
+    background-color: var(--white);
+}
+
+.nav-logo img {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: opacity var(--transition-base);
+}
+
+.nav-logo:hover img {
+    opacity: 1;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 28rem;
+    text-align: center;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ========================================
+   Seção de Branding
+   ======================================== */
+
+.brand-section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.logo {
+    width: 3.5rem;
+    max-width: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.logo img {
+    width: 500px;
+}
+
+.brand-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: -0.5px;
+}
+
+.brand-subtitle {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-color);
+    letter-spacing: 0.3px;
+}
+
+/* ========================================
+   Seção de Autenticação
+   ======================================== */
+
+.auth-section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* ========================================
+   Botões
+   ======================================== */
+
+.btn {
+    display: block;
+    width: 80%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    outline: none;
+    font-family: var(--font-family);
+}
+
+/* Botão Primário */
+.btn-primary {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    box-shadow: var(--shadow-md);
+}
+
+/* Botão Secundário */
+.btn-secondary {
+    background-color: var(--white);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   Seção Learn More
+   ======================================== */
+
+.scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.scroll-indicator {
+    width: 2px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-indicator::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--text-secondary);
+    animation: scrollIndicator 2s infinite;
+}
+
+@keyframes scrollIndicator {
+    0% {
+        transform: translateY(-100%);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(0.375rem);
+    }
+}
+
+/* ========================================
+   Responsividade
+   ======================================== */
+
+@media (min-width: 640px) {
+    .logo {
+        width: 4rem;
+        height: auto;
+    }
+
+    .brand-title {
+        font-size: 2.25rem;
+    }
+
+    .brand-subtitle {
+        font-size: var(--font-size-lg);
+    }
+
+    .btn {
+        padding: var(--spacing-lg) var(--spacing-xl);
+        font-size: var(--font-size-lg);
+    }
+
+    .learn-more-btn {
+        font-size: var(--font-size-base);
+    }
+
+    .chevron {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .logo {
+        width: 5rem;
+        height: auto;
+    }
+
+    .brand-title {
+        font-size: 2.5rem;
+    }
+
+    .login-container {
+        max-width: 32rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: var(--spacing-2xl);
+    }
+}

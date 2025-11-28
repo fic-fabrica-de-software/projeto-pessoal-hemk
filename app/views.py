@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Usuario
 
-def login(request):
-    return render(request, 'usuarios/login.html')
+def index(request):
+    return render(request, 'user/index.html')
 
 def cadastro(request):
     return render(request, 'usuarios/cadastro.html')
